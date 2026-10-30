@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense &amp; Budget Visualizer</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== APP HEADER ===== -->
+    <header class="app-header">
+      <span class="header-icon">💸</span>
+      <h1 class="header-title">Expense &amp; Budget Visualizer</h1>
+      <!-- Dark / Light mode toggle (Feature 1) -->
+      <button
+        class="btn-theme-toggle"
+        id="theme-toggle"
+        aria-label="Switch to dark mode"
+        title="Toggle dark / light mode"
+      >🌙</button>
+    </header>
+
+    <main class="app-main">
+
+      <!-- ===== TOTAL BALANCE CARD ===== -->
+      <section class="card balance-card" id="balance-card" aria-label="Total balance">
+        <p class="balance-label">Total Spent</p>
+        <p class="balance-amount" id="balance-amount">Rp 0</p>
+        <!-- Warning message shown when limit is exceeded (Feature 3) -->
+        <p class="balance-warning hidden" id="balance-warning" role="alert" aria-live="polite"></p>
+
+        <!-- Spending limit controls (Feature 3) -->
+        <div class="limit-row">
+          <label class="limit-label" for="limit-input">Spending Limit (Rp)</label>
+          <div class="limit-input-group">
+            <input
+              class="limit-input"
+              type="number"
+              id="limit-input"
+              placeholder="e.g. 500000"
+              min="0"
+              step="any"
+              aria-label="Set spending limit in Rupiah"
+            />
+            <button class="btn-limit-set" id="limit-set-btn" type="button">Set</button>
+            <button class="btn-limit-clear hidden" id="limit-clear-btn" type="button" aria-label="Clear spending limit">✕</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== ADD TRANSACTION FORM CARD ===== -->
+      <section class="card form-card" aria-label="Add transaction">
+        <h2 class="card-title">Add Transaction</h2>
+
+        <form id="transaction-form" novalidate>
+          <!-- Item Name -->
+          <div class="form-group">
+            <label class="form-label" for="item-name">Item Name</label>
+            <input
+              class="form-input"
+              type="text"
+              id="item-name"
+              name="item-name"
+              placeholder="e.g. Lunch, Bus ticket…"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- Amount -->
+          <div class="form-group">
+            <label class="form-label" for="item-amount">Amount (Rp)</label>
+            <input
+              class="form-input"
+              type="number"
+              id="item-amount"
+              name="item-amount"
+              placeholder="e.g. 25000"
+              min="1"
+              step="any"
+            />
+          </div>
+
+          <!-- Category -->
+          <div class="form-group">
+            <label class="form-label" for="item-category">Category</label>
+            <select class="form-input form-select" id="item-category" name="item-category">
+              <option value="">— Select category —</option>
+              <option value="Food">🍔 Food</option>
+              <option value="Transport">🚌 Transport</option>
+              <option value="Fun">🎉 Fun</option>
+            </select>
+          </div>
+
+          <!-- Validation error message -->
+          <p class="error-msg hidden" id="error-msg" role="alert" aria-live="polite"></p>
+
+          <button class="btn btn-primary" type="submit">Add Transaction</button>
+        </form>
+      </section>
+
+      <!-- ===== BOTTOM SECTION: transactions + chart side-by-side on desktop ===== -->
+      <div class="bottom-grid">
+
+        <!-- TRANSACTION LIST CARD -->
+        <section class="card transactions-card" aria-label="Transaction history">
+          <!-- Sort controls (Feature 2) -->
+          <div class="list-header">
+            <h2 class="card-title" style="margin-bottom:0;border-bottom:none;">Transactions</h2>
+            <div class="sort-group">
+              <label class="sort-label" for="sort-select">Sort</label>
+              <select class="form-input form-select sort-select" id="sort-select" aria-label="Sort transactions">
+                <option value="default">Default</option>
+                <option value="amount-asc">Amount ↑</option>
+                <option value="amount-desc">Amount ↓</option>
+                <option value="category-az">Category A–Z</option>
+              </select>
+            </div>
+          </div>
+          <hr class="list-divider" />
+
+          <!-- Empty state (shown when list is empty) -->
+          <p class="empty-state hidden" id="empty-state">
+            No transactions yet. Add one above!
+          </p>
+
+          <ul class="transaction-list" id="transaction-list" aria-label="List of transactions">
+            <!-- Transaction items injected here by JS -->
+          </ul>
+        </section>
+
+        <!-- PIE CHART CARD -->
+        <section class="card chart-card" aria-label="Spending by category chart">
+          <h2 class="card-title">Spending by Category</h2>
+
+          <!-- Shown when there's no data -->
+          <p class="empty-state" id="chart-placeholder">
+            Add transactions to see your spending breakdown.
+          </p>
+
+          <!-- Chart canvas (hidden until there's data) -->
+          <div class="chart-wrapper hidden" id="chart-wrapper">
+            <canvas id="spending-chart" aria-label="Pie chart of spending by category" role="img"></canvas>
+          </div>
+        </section>
+
+      </div><!-- /.bottom-grid -->
+
+    </main>
+
+    <footer class="app-footer">
+      <p>Data stored locally in your browser &mdash; never leaves your device.</p>
+    </footer>
+
+    <!-- Chart.js via CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <!-- App logic -->
+    <script src="js/script.js"></script>
+  </body>
+</html>
