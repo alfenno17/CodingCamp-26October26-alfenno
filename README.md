@@ -17,12 +17,12 @@ Proyek ini telah di-deploy dan dapat diakses langsung melalui GitHub Pages.
 
 ## ✨ Fitur Utama
 
-- **💰 Pencatatan Transaksi Dinamis**: Tambahkan transaksi pengeluaran baru dengan form input untuk nama barang, nominal harga, dan kategori (misal: *Food*, *Transport*, dll).
-- **🎯 Penetapan Batas Anggaran (Budgeting)**: Pengguna dapat menetapkan batas anggaran (*Spending Limit*) dan melihat total pengeluaran secara real-time.
-- **📊 Visualisasi Data Interaktif**: Menampilkan *Pie Chart* dinamis untuk memvisualisasikan persentase pengeluaran berdasarkan kategori.
-- **📋 Manajemen Histori Transaksi**: Menampilkan daftar transaksi yang telah diinput. Pengguna dapat mengurutkan (*Sort*) dan menghapus (*Delete*) transaksi dengan mudah.
-- **🌓 Mode Terang / Gelap**: Dilengkapi tombol *toggle* tema gelap/terang (Dark Mode) untuk kenyamanan mata pengguna di berbagai kondisi pencahayaan.
-- **📱 Responsif**: Tata letak yang beradaptasi secara otomatis untuk layar desktop, tablet, dan smartphone.
+- ** Pencatatan Transaksi Dinamis**: Tambahkan transaksi pengeluaran baru dengan form input untuk nama barang, nominal harga, dan kategori (misal: *Food*, *Transport*, dll).
+- ** Penetapan Batas Anggaran (Budgeting)**: Pengguna dapat menetapkan batas anggaran (*Spending Limit*) dan melihat total pengeluaran secara real-time.
+- ** Visualisasi Data Interaktif**: Menampilkan *Pie Chart* dinamis untuk memvisualisasikan persentase pengeluaran berdasarkan kategori.
+- ** Manajemen Histori Transaksi**: Menampilkan daftar transaksi yang telah diinput. Pengguna dapat mengurutkan (*Sort*) dan menghapus (*Delete*) transaksi dengan mudah.
+- ** Mode Terang / Gelap**: Dilengkapi tombol *toggle* tema gelap/terang (Dark Mode) untuk kenyamanan mata pengguna di berbagai kondisi pencahayaan.
+- ** Responsif**: Tata letak yang beradaptasi secara otomatis untuk layar desktop, tablet, dan smartphone.
 
 ---
 
